@@ -13,9 +13,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 
 // CORS
-app.use(cors({
-  origin: 'https://peppy-jelly-d81c2c.netlify.app'
-}));
+app.use(cors());
 
 const mongoURI: string = process.env.MONGO_URI || ""; // Use the environment variable
 
