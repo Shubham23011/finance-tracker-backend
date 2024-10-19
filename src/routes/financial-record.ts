@@ -5,6 +5,11 @@ const router = express.Router()
 
 // Backend Ready!!!
 
+// Root endpoint message
+router.get("/", (req: Request, res: Response) => {
+    res.status(200).send("Hello Shubham");
+});
+
 // Get All User By Id
 router.get("/getAllByUserId/:userId", async(req:Request, res:Response) => {
     try{
