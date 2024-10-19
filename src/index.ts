@@ -1,21 +1,21 @@
-// PWD:: nShJdR9GIB6zoVly
 import express, { Express } from "express";
 import mongoose from "mongoose";
 import financialRecordRouter from "./routes/financial-record";
-import cors from "cors"
+import cors from "cors";
+import dotenv from "dotenv";
+
+dotenv.config(); // Load environment variables from .env file
 
 const app: Express = express();
-
 const PORT = process.env.PORT || 3001;
 
 // Using express.json() middleware to parse JSON requests
 app.use(express.json());
 
 // CORS
-app.use(cors())
+app.use(cors());
 
-const mongoURI: string =
-  "mongodb+srv://shubhamraihero2015:nShJdR9GIB6zoVly@financetracker.ayxmt.mongodb.net/";
+const mongoURI: string = process.env.MONGO_URI || ""; // Use the environment variable
 
 mongoose
   .connect(mongoURI)
@@ -25,7 +25,7 @@ mongoose
     process.exit(1);
   });
 
-// Use the financial record router for all backend api calls
+// Use the financial record router for all backend API calls
 app.use("/financial-records", financialRecordRouter);
 
 app.listen(PORT, () => {
