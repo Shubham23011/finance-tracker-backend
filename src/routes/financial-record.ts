@@ -7,8 +7,9 @@ const router = express.Router()
 
 // Root endpoint message
 router.get("/", (req: Request, res: Response) => {
-    res.status(200).send("Hello Shubham");
+    res.redirect("/auth");
 });
+
 
 // Get All User By Id
 router.get("/getAllByUserId/:userId", async(req:Request, res:Response) => {
